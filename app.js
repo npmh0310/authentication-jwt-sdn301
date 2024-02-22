@@ -3,11 +3,11 @@ var createError = require('http-errors');
 var express = require('express');
 //? update passport
 var passport = require('passport');
-var session = require("express-session"); 
+var session = require("express-session");
 var FileStore = require("session-file-store")(session);
-const mongoose = require("mongoose"); 
+const mongoose = require("mongoose");
 var path = require('path');
-var cookieParser = require('cookie-parser'); 
+var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 // Import các route
@@ -48,19 +48,19 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Middleware xác thực
-function auth(req, res, next) {
-  console.log(req.user);
-  if (!req.user) {
-    var err = new Error('You are not authenticated!');
-    err.status = 403;
-    next(err);
-  }
-  else {
-    next();
-  }
-}
+// function auth(req, res, next) {
+//   console.log(req.user);
+//   if (!req.user) {
+//     var err = new Error('You are not authenticated!');
+//     err.status = 403;
+//     next(err);
+//   }
+//   else {
+//     next();
+//   }
+// }
 app.use("/users", usersRouter);
-app.use(auth);
+// app.use(auth);
 
 
 // Cấu hình view engine và middleware
