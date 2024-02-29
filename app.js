@@ -47,20 +47,9 @@ var authenticate = require('./authenticate');
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Middleware xác thực
-// function auth(req, res, next) {
-//   console.log(req.user);
-//   if (!req.user) {
-//     var err = new Error('You are not authenticated!');
-//     err.status = 403;
-//     next(err);
-//   }
-//   else {
-//     next();
-//   }
-// }
+
 app.use("/users", usersRouter);
-// app.use(auth);
+
 
 
 // Cấu hình view engine và middleware
